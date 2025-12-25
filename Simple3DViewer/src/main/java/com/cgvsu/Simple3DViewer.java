@@ -1,6 +1,7 @@
 package com.cgvsu;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -15,7 +16,6 @@ import java.util.Objects;
  */
 public class Simple3DViewer extends Application {
 
-    // Путь к тёмной теме по умолчанию
     private static final String DEFAULT_THEME = "/com/cgvsu/css/dark-theme.css";
 
     @Override
@@ -24,10 +24,10 @@ public class Simple3DViewer extends Application {
         BorderPane root = FXMLLoader.load(
                 Objects.requireNonNull(getClass().getResource("fxml/gui.fxml")));
 
-        // Создаём сцену
-        Scene scene = new Scene(root);
+        // Создаём сцену с начальными размерами
+        Scene scene = new Scene(root, 1280, 720);
 
-        // Применяем CSS тему по умолчанию
+        // Применяем CSS тему
         try {
             String css = Objects.requireNonNull(
                     getClass().getResource(DEFAULT_THEME)).toExternalForm();
@@ -36,19 +36,17 @@ public class Simple3DViewer extends Application {
             System.err.println("Не удалось загрузить тему: " + e.getMessage());
         }
 
-        // Настраиваем окно
-        stage.setMinWidth(1280);
-        stage.setMinHeight(720);
-        stage.setWidth(1600);
-        stage.setHeight(900);
-
-        // Привязываем размеры корневого элемента к размерам сцены
-        root.prefWidthProperty().bind(scene.widthProperty());
-        root.prefHeightProperty().bind(scene.heightProperty());
-
         stage.setTitle("Simple3DViewer - 3D Визуализатор");
         stage.setScene(scene);
+
+        // Сначала показываем окно
         stage.show();
+
+        // Затем устанавливаем размеры (для macOS)
+        Platform.runLater(() -> {
+            stage.setWidth(1280);
+            stage.setHeight(720);
+        });
     }
 
     public static void main(String[] args) {

@@ -16,7 +16,12 @@
 }
 
 /* AnchorPane и основные панели */
-.anchor-pane, .pane, .border-pane, .split-pane, .vbox, .hbox {
+.anchor-pane,
+.pane,
+.border-pane,
+.split-pane,
+.vbox,
+.hbox {
     -fx-background-color: #ffffff;
 }
 
@@ -44,7 +49,7 @@
     -fx-background-color: #ffffff;
     -fx-border-color: #d0d0d0;
     -fx-border-width: 1;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 2);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 8, 0, 0, 2);
 }
 
 .menu-item {
@@ -162,7 +167,8 @@
 }
 
 /* TextField и TextArea */
-.text-field, .text-area {
+.text-field,
+.text-area {
     -fx-background-color: #ffffff;
     -fx-text-fill: #333333;
     -fx-border-color: #c0c0c0;
@@ -171,7 +177,8 @@
     -fx-prompt-text-fill: #999999;
 }
 
-.text-field:focused, .text-area:focused {
+.text-field:focused,
+.text-area:focused {
     -fx-border-color: #2196f3;
 }
 
@@ -273,9 +280,41 @@
 /* Боковая панель */
 .side-panel {
     -fx-background-color: #fafafa;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+}
+
+/* ScrollPane для боковой панели */
+.side-panel-scroll {
+    -fx-background-color: #fafafa;
     -fx-border-color: #e0e0e0;
     -fx-border-width: 0 1 0 0;
-    -fx-padding: 10;
+    -fx-padding: 0;
+}
+
+.side-panel-scroll > .viewport {
+    -fx-background-color: #fafafa;
+}
+
+.side-panel-scroll .scroll-bar:vertical {
+    -fx-background-color: #f0f0f0;
+    -fx-pref-width: 8px;
+}
+
+.side-panel-scroll .scroll-bar:vertical .thumb {
+    -fx-background-color: #c0c0c0;
+    -fx-background-radius: 4;
+}
+
+.side-panel-scroll .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #a0a0a0;
+}
+
+.side-panel-scroll .scroll-bar:vertical .increment-button,
+.side-panel-scroll .scroll-bar:vertical .decrement-button {
+    -fx-pref-height: 0;
+    -fx-pref-width: 0;
 }
 
 /* Статус бар */

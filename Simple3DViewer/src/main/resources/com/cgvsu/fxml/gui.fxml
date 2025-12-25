@@ -1,12 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+<?xml version="1.0" encoding="UTF-8" ?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.*?>
-
-<BorderPane fx:id="rootPane" xmlns:fx="http://javafx.com/fxml" fx:controller="com.cgvsu.GuiController">
+<BorderPane
+    fx:id="rootPane"
+    xmlns:fx="http://javafx.com/fxml"
+    fx:controller="com.cgvsu.GuiController"
+>
 
     <!-- Верхняя панель с меню -->
     <top>
@@ -14,205 +16,449 @@
             <MenuBar fx:id="menuBar">
                 <!-- Меню Файл -->
                 <Menu mnemonicParsing="false" text="Файл">
-                    <MenuItem mnemonicParsing="false" onAction="#onOpenModelMenuItemClick" text="Открыть модель...">
+                    <MenuItem
+                        mnemonicParsing="false"
+                        onAction="#onOpenModelMenuItemClick"
+                        text="Открыть модель..."
+                    >
                         <accelerator>
-                            <KeyCodeCombination alt="UP" control="DOWN" meta="UP" shift="UP" shortcut="UP" code="O"/>
+                            <KeyCodeCombination
+                                alt="UP"
+                                control="DOWN"
+                                meta="UP"
+                                shift="UP"
+                                shortcut="UP"
+                                code="O"
+                            />
                         </accelerator>
                     </MenuItem>
-                    <MenuItem fx:id="saveMenuItem" mnemonicParsing="false" onAction="#onSaveModelMenuItemClick" text="Сохранить модель...">
+                    <MenuItem
+                        fx:id="saveMenuItem"
+                        mnemonicParsing="false"
+                        onAction="#onSaveModelMenuItemClick"
+                        text="Сохранить модель..."
+                    >
                         <accelerator>
-                            <KeyCodeCombination alt="UP" control="DOWN" meta="UP" shift="UP" shortcut="UP" code="S"/>
+                            <KeyCodeCombination
+                                alt="UP"
+                                control="DOWN"
+                                meta="UP"
+                                shift="UP"
+                                shortcut="UP"
+                                code="S"
+                            />
                         </accelerator>
                     </MenuItem>
-                    <SeparatorMenuItem/>
-                    <MenuItem mnemonicParsing="false" onAction="#onExitMenuItemClick" text="Выход">
+                    <SeparatorMenuItem />
+                    <MenuItem
+                        mnemonicParsing="false"
+                        onAction="#onExitMenuItemClick"
+                        text="Выход"
+                    >
                         <accelerator>
-                            <KeyCodeCombination alt="UP" control="DOWN" meta="UP" shift="UP" shortcut="UP" code="Q"/>
+                            <KeyCodeCombination
+                                alt="UP"
+                                control="DOWN"
+                                meta="UP"
+                                shift="UP"
+                                shortcut="UP"
+                                code="Q"
+                            />
                         </accelerator>
                     </MenuItem>
                 </Menu>
 
                 <!-- Меню Редактирование -->
                 <Menu mnemonicParsing="false" text="Редактирование">
-                    <MenuItem fx:id="deleteVerticesMenuItem" mnemonicParsing="false" onAction="#onDeleteVerticesClick" text="Удалить выбранные вершины">
+                    <MenuItem
+                        fx:id="deleteVerticesMenuItem"
+                        mnemonicParsing="false"
+                        onAction="#onDeleteVerticesClick"
+                        text="Удалить выбранные вершины"
+                    >
                         <accelerator>
-                            <KeyCodeCombination alt="UP" control="UP" meta="UP" shift="UP" shortcut="UP" code="DELETE"/>
+                            <KeyCodeCombination
+                                alt="UP"
+                                control="UP"
+                                meta="UP"
+                                shift="UP"
+                                shortcut="UP"
+                                code="DELETE"
+                            />
                         </accelerator>
                     </MenuItem>
-                    <MenuItem fx:id="deletePolygonsMenuItem" mnemonicParsing="false" onAction="#onDeletePolygonsClick" text="Удалить выбранные полигоны"/>
-                    <SeparatorMenuItem/>
-                    <MenuItem mnemonicParsing="false" onAction="#onSelectAllModelsClick" text="Выбрать все модели">
+                    <MenuItem
+                        fx:id="deletePolygonsMenuItem"
+                        mnemonicParsing="false"
+                        onAction="#onDeletePolygonsClick"
+                        text="Удалить выбранные полигоны"
+                    />
+                    <SeparatorMenuItem />
+                    <MenuItem
+                        mnemonicParsing="false"
+                        onAction="#onSelectAllModelsClick"
+                        text="Выбрать все модели"
+                    >
                         <accelerator>
-                            <KeyCodeCombination alt="UP" control="DOWN" meta="UP" shift="UP" shortcut="UP" code="A"/>
+                            <KeyCodeCombination
+                                alt="UP"
+                                control="DOWN"
+                                meta="UP"
+                                shift="UP"
+                                shortcut="UP"
+                                code="A"
+                            />
                         </accelerator>
                     </MenuItem>
-                    <MenuItem mnemonicParsing="false" onAction="#onDeselectAllModelsClick" text="Снять выделение"/>
+                    <MenuItem
+                        mnemonicParsing="false"
+                        onAction="#onDeselectAllModelsClick"
+                        text="Снять выделение"
+                    />
                 </Menu>
 
                 <!-- Меню Камера -->
                 <Menu mnemonicParsing="false" text="Камера">
-                    <MenuItem mnemonicParsing="false" onAction="#handleCameraForward" text="Вперёд">
+                    <MenuItem
+                        mnemonicParsing="false"
+                        onAction="#handleCameraForward"
+                        text="Вперёд"
+                    >
                         <accelerator>
-                            <KeyCodeCombination alt="UP" control="UP" meta="UP" shift="UP" shortcut="UP" code="UP"/>
+                            <KeyCodeCombination
+                                alt="UP"
+                                control="UP"
+                                meta="UP"
+                                shift="UP"
+                                shortcut="UP"
+                                code="UP"
+                            />
                         </accelerator>
                     </MenuItem>
-                    <MenuItem mnemonicParsing="false" onAction="#handleCameraBackward" text="Назад">
+                    <MenuItem
+                        mnemonicParsing="false"
+                        onAction="#handleCameraBackward"
+                        text="Назад"
+                    >
                         <accelerator>
-                            <KeyCodeCombination alt="UP" control="UP" meta="UP" shift="UP" shortcut="UP" code="DOWN"/>
+                            <KeyCodeCombination
+                                alt="UP"
+                                control="UP"
+                                meta="UP"
+                                shift="UP"
+                                shortcut="UP"
+                                code="DOWN"
+                            />
                         </accelerator>
                     </MenuItem>
-                    <MenuItem mnemonicParsing="false" onAction="#handleCameraLeft" text="Влево">
+                    <MenuItem
+                        mnemonicParsing="false"
+                        onAction="#handleCameraLeft"
+                        text="Влево"
+                    >
                         <accelerator>
-                            <KeyCodeCombination alt="UP" control="UP" meta="UP" shift="UP" shortcut="UP" code="LEFT"/>
+                            <KeyCodeCombination
+                                alt="UP"
+                                control="UP"
+                                meta="UP"
+                                shift="UP"
+                                shortcut="UP"
+                                code="LEFT"
+                            />
                         </accelerator>
                     </MenuItem>
-                    <MenuItem mnemonicParsing="false" onAction="#handleCameraRight" text="Вправо">
+                    <MenuItem
+                        mnemonicParsing="false"
+                        onAction="#handleCameraRight"
+                        text="Вправо"
+                    >
                         <accelerator>
-                            <KeyCodeCombination alt="UP" control="UP" meta="UP" shift="UP" shortcut="UP" code="RIGHT"/>
+                            <KeyCodeCombination
+                                alt="UP"
+                                control="UP"
+                                meta="UP"
+                                shift="UP"
+                                shortcut="UP"
+                                code="RIGHT"
+                            />
                         </accelerator>
                     </MenuItem>
-                    <MenuItem mnemonicParsing="false" onAction="#handleCameraUp" text="Вверх">
+                    <MenuItem
+                        mnemonicParsing="false"
+                        onAction="#handleCameraUp"
+                        text="Вверх"
+                    >
                         <accelerator>
-                            <KeyCodeCombination alt="UP" control="UP" meta="UP" shift="UP" shortcut="UP" code="W"/>
+                            <KeyCodeCombination
+                                alt="UP"
+                                control="UP"
+                                meta="UP"
+                                shift="UP"
+                                shortcut="UP"
+                                code="W"
+                            />
                         </accelerator>
                     </MenuItem>
-                    <MenuItem mnemonicParsing="false" onAction="#handleCameraDown" text="Вниз">
+                    <MenuItem
+                        mnemonicParsing="false"
+                        onAction="#handleCameraDown"
+                        text="Вниз"
+                    >
                         <accelerator>
-                            <KeyCodeCombination alt="UP" control="UP" meta="UP" shift="UP" shortcut="UP" code="S"/>
+                            <KeyCodeCombination
+                                alt="UP"
+                                control="UP"
+                                meta="UP"
+                                shift="UP"
+                                shortcut="UP"
+                                code="S"
+                            />
                         </accelerator>
                     </MenuItem>
-                    <SeparatorMenuItem/>
-                    <MenuItem mnemonicParsing="false" onAction="#handleCameraReset" text="Сбросить камеру">
+                    <SeparatorMenuItem />
+                    <MenuItem
+                        mnemonicParsing="false"
+                        onAction="#handleCameraReset"
+                        text="Сбросить камеру"
+                    >
                         <accelerator>
-                            <KeyCodeCombination alt="UP" control="DOWN" meta="UP" shift="UP" shortcut="UP" code="R"/>
+                            <KeyCodeCombination
+                                alt="UP"
+                                control="DOWN"
+                                meta="UP"
+                                shift="UP"
+                                shortcut="UP"
+                                code="R"
+                            />
                         </accelerator>
                     </MenuItem>
                 </Menu>
 
                 <!-- Меню Вид -->
                 <Menu mnemonicParsing="false" text="Вид">
-                    <RadioMenuItem fx:id="darkThemeMenuItem" mnemonicParsing="false" onAction="#onDarkThemeSelected" text="Тёмная тема" selected="true">
+                    <RadioMenuItem
+                        fx:id="darkThemeMenuItem"
+                        mnemonicParsing="false"
+                        onAction="#onDarkThemeSelected"
+                        text="Тёмная тема"
+                        selected="true"
+                    >
                         <toggleGroup>
-                            <ToggleGroup fx:id="themeToggleGroup"/>
+                            <ToggleGroup fx:id="themeToggleGroup" />
                         </toggleGroup>
                     </RadioMenuItem>
-                    <RadioMenuItem fx:id="lightThemeMenuItem" mnemonicParsing="false" onAction="#onLightThemeSelected" text="Светлая тема" toggleGroup="$themeToggleGroup"/>
-                    <SeparatorMenuItem/>
-                    <CheckMenuItem fx:id="showGridMenuItem" mnemonicParsing="false" text="Показать сетку" selected="false"/>
-                    <CheckMenuItem fx:id="showAxesMenuItem" mnemonicParsing="false" text="Показать оси" selected="true"/>
+                    <RadioMenuItem
+                        fx:id="lightThemeMenuItem"
+                        mnemonicParsing="false"
+                        onAction="#onLightThemeSelected"
+                        text="Светлая тема"
+                        toggleGroup="$themeToggleGroup"
+                    />
+                    <SeparatorMenuItem />
+                    <CheckMenuItem
+                        fx:id="showGridMenuItem"
+                        mnemonicParsing="false"
+                        text="Показать сетку"
+                        selected="false"
+                    />
+                    <CheckMenuItem
+                        fx:id="showAxesMenuItem"
+                        mnemonicParsing="false"
+                        text="Показать оси"
+                        selected="true"
+                    />
                 </Menu>
 
                 <!-- Меню Справка -->
                 <Menu mnemonicParsing="false" text="Справка">
-                    <MenuItem mnemonicParsing="false" onAction="#onAboutMenuItemClick" text="О программе"/>
+                    <MenuItem
+                        mnemonicParsing="false"
+                        onAction="#onAboutMenuItemClick"
+                        text="О программе"
+                    />
                 </Menu>
             </MenuBar>
         </VBox>
     </top>
 
-    <!-- Левая панель со списком моделей -->
+    <!-- Левая панель со списком моделей - обёрнута в ScrollPane -->
     <left>
-        <VBox fx:id="sidePanel" styleClass="side-panel" prefWidth="250" spacing="10">
-            <padding>
-                <Insets top="10" right="10" bottom="10" left="10"/>
-            </padding>
+        <ScrollPane
+            fitToWidth="true"
+            hbarPolicy="NEVER"
+            vbarPolicy="AS_NEEDED"
+            styleClass="side-panel-scroll"
+            prefWidth="260"
+            minWidth="260"
+            maxWidth="260"
+        >
+            <VBox fx:id="sidePanel" styleClass="side-panel" spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10" />
+                </padding>
 
-            <!-- Заголовок панели моделей -->
-            <Label text="Модели на сцене" styleClass="title"/>
+                <!-- Заголовок панели моделей -->
+                <Label text="Модели на сцене" styleClass="title" />
 
-            <!-- Список моделей -->
-            <ListView fx:id="modelListView" VBox.vgrow="ALWAYS" prefHeight="200">
-                <tooltip>
-                    <Tooltip text="Выберите модель для работы. Ctrl+Click для множественного выбора."/>
-                </tooltip>
-            </ListView>
-
-            <!-- Кнопки управления моделями -->
-            <HBox spacing="5" alignment="CENTER">
-                <Button fx:id="addModelButton" text="+" prefWidth="40" onAction="#onOpenModelMenuItemClick">
+                <!-- Список моделей с фиксированной высотой -->
+                <ListView
+                    fx:id="modelListView"
+                    prefHeight="150"
+                    minHeight="100"
+                    maxHeight="200"
+                >
                     <tooltip>
-                        <Tooltip text="Добавить модель"/>
+                        <Tooltip
+                            text="Выберите модель для работы. Ctrl+Click для множественного выбора."
+                        />
                     </tooltip>
-                </Button>
-                <Button fx:id="removeModelButton" text="−" prefWidth="40" onAction="#onRemoveModelClick" styleClass="danger">
-                    <tooltip>
-                        <Tooltip text="Удалить выбранную модель"/>
-                    </tooltip>
-                </Button>
-                <Button fx:id="renameModelButton" text="✎" prefWidth="40" onAction="#onRenameModelClick">
-                    <tooltip>
-                        <Tooltip text="Переименовать модель"/>
-                    </tooltip>
-                </Button>
-            </HBox>
+                </ListView>
 
-            <Separator/>
-
-            <!-- Информация о выбранной модели -->
-            <Label text="Информация о модели" styleClass="title"/>
-            <VBox fx:id="modelInfoPane" spacing="5">
-                <Label fx:id="vertexCountLabel" text="Вершины: -" styleClass="subtitle"/>
-                <Label fx:id="polygonCountLabel" text="Полигоны: -" styleClass="subtitle"/>
-                <Label fx:id="textureCountLabel" text="Текст. коорд.: -" styleClass="subtitle"/>
-                <Label fx:id="normalCountLabel" text="Нормали: -" styleClass="subtitle"/>
-            </VBox>
-
-            <Separator/>
-
-            <!-- Раздел редактирования -->
-            <Label text="Редактирование" styleClass="title"/>
-
-            <VBox spacing="5">
-                <HBox spacing="5">
-                    <Label text="Индексы вершин:"/>
+                <!-- Кнопки управления моделями -->
+                <HBox spacing="5" alignment="CENTER">
+                    <Button
+                        fx:id="addModelButton"
+                        text="+"
+                        prefWidth="40"
+                        onAction="#onOpenModelMenuItemClick"
+                    >
+                        <tooltip>
+                            <Tooltip text="Добавить модель" />
+                        </tooltip>
+                    </Button>
+                    <Button
+                        fx:id="removeModelButton"
+                        text="−"
+                        prefWidth="40"
+                        onAction="#onRemoveModelClick"
+                        styleClass="danger"
+                    >
+                        <tooltip>
+                            <Tooltip text="Удалить выбранную модель" />
+                        </tooltip>
+                    </Button>
+                    <Button
+                        fx:id="renameModelButton"
+                        text="✎"
+                        prefWidth="40"
+                        onAction="#onRenameModelClick"
+                    >
+                        <tooltip>
+                            <Tooltip text="Переименовать модель" />
+                        </tooltip>
+                    </Button>
                 </HBox>
-                <TextField fx:id="vertexIndicesField" promptText="например: 0, 1, 5-10">
-                    <tooltip>
-                        <Tooltip text="Введите индексы через запятую или диапазон (5-10)"/>
-                    </tooltip>
-                </TextField>
-                <Button fx:id="deleteVerticesButton" text="Удалить вершины" maxWidth="Infinity" onAction="#onDeleteVerticesClick" styleClass="danger"/>
-            </VBox>
 
-            <VBox spacing="5">
-                <HBox spacing="5">
-                    <Label text="Индексы полигонов:"/>
-                </HBox>
-                <TextField fx:id="polygonIndicesField" promptText="например: 0, 1, 5-10">
-                    <tooltip>
-                        <Tooltip text="Введите индексы через запятую или диапазон (5-10)"/>
-                    </tooltip>
-                </TextField>
-                <Button fx:id="deletePolygonsButton" text="Удалить полигоны" maxWidth="Infinity" onAction="#onDeletePolygonsClick" styleClass="danger"/>
-            </VBox>
+                <Separator />
 
-            <!-- Отступ внизу -->
-            <Region VBox.vgrow="ALWAYS"/>
-        </VBox>
+                <!-- Информация о выбранной модели -->
+                <Label text="Информация о модели" styleClass="title" />
+                <VBox fx:id="modelInfoPane" spacing="3">
+                    <Label
+                        fx:id="vertexCountLabel"
+                        text="Вершины: -"
+                        styleClass="subtitle"
+                    />
+                    <Label
+                        fx:id="polygonCountLabel"
+                        text="Полигоны: -"
+                        styleClass="subtitle"
+                    />
+                    <Label
+                        fx:id="textureCountLabel"
+                        text="Текст. коорд.: -"
+                        styleClass="subtitle"
+                    />
+                    <Label
+                        fx:id="normalCountLabel"
+                        text="Нормали: -"
+                        styleClass="subtitle"
+                    />
+                </VBox>
+
+                <Separator />
+
+                <!-- Раздел редактирования -->
+                <Label text="Редактирование" styleClass="title" />
+
+                <VBox spacing="5">
+                    <Label text="Индексы вершин:" styleClass="subtitle" />
+                    <TextField
+                        fx:id="vertexIndicesField"
+                        promptText="например: 0, 1, 5-10"
+                    >
+                        <tooltip>
+                            <Tooltip
+                                text="Введите индексы через запятую или диапазон (5-10)"
+                            />
+                        </tooltip>
+                    </TextField>
+                    <Button
+                        fx:id="deleteVerticesButton"
+                        text="Удалить вершины"
+                        maxWidth="Infinity"
+                        onAction="#onDeleteVerticesClick"
+                        styleClass="danger"
+                    />
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Индексы полигонов:" styleClass="subtitle" />
+                    <TextField
+                        fx:id="polygonIndicesField"
+                        promptText="например: 0, 1, 5-10"
+                    >
+                        <tooltip>
+                            <Tooltip
+                                text="Введите индексы через запятую или диапазон (5-10)"
+                            />
+                        </tooltip>
+                    </TextField>
+                    <Button
+                        fx:id="deletePolygonsButton"
+                        text="Удалить полигоны"
+                        maxWidth="Infinity"
+                        onAction="#onDeletePolygonsClick"
+                        styleClass="danger"
+                    />
+                </VBox>
+            </VBox>
+        </ScrollPane>
     </left>
 
     <!-- Центральная область с канвасом -->
     <center>
         <AnchorPane fx:id="canvasPane" styleClass="canvas-container">
-            <Canvas fx:id="canvas" width="1200" height="800"
-                    AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
-                    AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"/>
+            <Canvas
+                fx:id="canvas"
+                width="100"
+                height="100"
+                AnchorPane.topAnchor="0"
+                AnchorPane.bottomAnchor="0"
+                AnchorPane.leftAnchor="0"
+                AnchorPane.rightAnchor="0"
+            />
         </AnchorPane>
     </center>
 
     <!-- Нижняя панель статуса -->
     <bottom>
-        <HBox fx:id="statusBar" styleClass="status-bar" spacing="20" alignment="CENTER_LEFT">
+        <HBox
+            fx:id="statusBar"
+            styleClass="status-bar"
+            spacing="20"
+            alignment="CENTER_LEFT"
+        >
             <padding>
-                <Insets top="5" right="10" bottom="5" left="10"/>
+                <Insets top="5" right="10" bottom="5" left="10" />
             </padding>
-            <Label fx:id="statusLabel" text="Готово"/>
-            <Region HBox.hgrow="ALWAYS"/>
-            <Label fx:id="modelCountLabel" text="Моделей: 0"/>
-            <Separator orientation="VERTICAL"/>
-            <Label fx:id="activeModelLabel" text="Активных: 0"/>
-            <Separator orientation="VERTICAL"/>
-            <Label fx:id="fpsLabel" text="FPS: 0"/>
+            <Label fx:id="statusLabel" text="Готово" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="modelCountLabel" text="Моделей: 0" />
+            <Separator orientation="VERTICAL" />
+            <Label fx:id="activeModelLabel" text="Активных: 0" />
+            <Separator orientation="VERTICAL" />
+            <Label fx:id="fpsLabel" text="FPS: 0" />
         </HBox>
     </bottom>
 

@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<project
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com</groupId>
@@ -9,14 +11,16 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Simple3DViewer</name>
-    <description>3D Model Viewer with OBJ support</description>
+    <description
+    >3D Model Viewer with OBJ support - Optimized for macOS</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <javafx.version>17.0.2</javafx.version>
-        <junit.version>5.8.1</junit.version>
+        <!-- JavaFX 17 более стабильна на macOS чем 21 -->
+        <javafx.version>17.0.9</javafx.version>
+        <junit.version>5.9.3</junit.version>
         <main.class>com.cgvsu.Main</main.class>
     </properties>
 
@@ -35,6 +39,11 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-graphics</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
             <version>${javafx.version}</version>
         </dependency>
 
@@ -66,10 +75,13 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.10.1</version>
+                <version>3.11.0</version>
                 <configuration>
                     <source>17</source>
                     <target>17</target>
+                    <compilerArgs>
+                        <arg>-Xlint:unchecked</arg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
 
@@ -77,9 +89,28 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>3.3.0</version>
+                <version>3.3.1</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <!-- JavaFX Plugin - для запуска через Maven -->
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version>
+                <configuration>
+                    <mainClass>com.cgvsu/com.cgvsu.Main</mainClass>
+                    <options>
+                        <!-- Опции для macOS -->
+                        <option>-Dprism.order=sw</option>
+                        <option>-Dprism.verbose=false</option>
+                        <option>-Djava.awt.headless=false</option>
+                        <option>-Dapple.awt.graphics.UseQuartz=true</option>
+                        <!-- Отключаем hardware acceleration для стабильности -->
+                        <option>-Dprism.forceGPU=false</option>
+                    </options>
                 </configuration>
             </plugin>
 
@@ -94,18 +125,15 @@
                             <addClasspath>true</addClasspath>
                             <mainClass>${main.class}</mainClass>
                         </manifest>
-                        <manifestEntries>
-                            <Class-Path>.</Class-Path>
-                        </manifestEntries>
                     </archive>
                 </configuration>
             </plugin>
 
-            <!-- Shade Plugin - создаёт uber-jar со всеми зависимостями -->
+            <!-- Shade Plugin - альтернатива assembly для создания uber-jar -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.4.1</version>
+                <version>3.5.1</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -113,56 +141,24 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <shadedArtifactAttached>true</shadedArtifactAttached>
-                            <shadedClassifierName>executable</shadedClassifierName>
                             <transformers>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                <transformer
+                                    implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer"
+                                >
                                     <mainClass>${main.class}</mainClass>
                                 </transformer>
                             </transformers>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/*.SF</exclude>
+                                        <exclude>META-INF/*.DSA</exclude>
+                                        <exclude>META-INF/*.RSA</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
                         </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <!-- JavaFX Plugin - для запуска через Maven -->
-            <plugin>
-                <groupId>org.openjfx</groupId>
-                <artifactId>javafx-maven-plugin</artifactId>
-                <version>0.0.8</version>
-                <configuration>
-                    <mainClass>com.cgvsu/${main.class}</mainClass>
-                </configuration>
-            </plugin>
-
-            <!-- Assembly Plugin - альтернативный способ сборки jar-with-dependencies -->
-            <!--
-            Команда сборки:
-            mvn clean compile assembly:single -DskipTests=true
-            -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.4.2</version>
-                <configuration>
-                    <finalName>Simple3DViewer</finalName>
-                    <archive>
-                        <manifest>
-                            <mainClass>${main.class}</mainClass>
-                        </manifest>
-                    </archive>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                    <appendAssemblyId>false</appendAssemblyId>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>make-assembly</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
                     </execution>
                 </executions>
             </plugin>
@@ -171,7 +167,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M7</version>
+                <version>3.1.2</version>
             </plugin>
         </plugins>
 
@@ -185,32 +181,62 @@
                     <include>**/*.png</include>
                     <include>**/*.jpg</include>
                     <include>**/*.properties</include>
+                    <include>**/*.obj</include>
                 </includes>
             </resource>
         </resources>
     </build>
 
-    <!--
-    =====================================================
-    ИНСТРУКЦИЯ ПО СБОРКЕ JAR ФАЙЛА:
-    =====================================================
+    <!-- Профиль для macOS с software rendering -->
+    <profiles>
+        <profile>
+            <id>macos-safe</id>
+            <activation>
+                <os>
+                    <family>mac</family>
+                </os>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.openjfx</groupId>
+                        <artifactId>javafx-maven-plugin</artifactId>
+                        <version>0.0.8</version>
+                        <configuration>
+                            <mainClass>com.cgvsu/com.cgvsu.Main</mainClass>
+                            <options>
+                                <option>-Dprism.order=sw</option>
+                                <option>-Dprism.verbose=false</option>
+                                <option>-Dglass.gtk.uiScale=1.0</option>
+                                <option>-Dprism.forceGPU=false</option>
+                                <option
+                                >-Djavafx.animation.fullspeed=false</option>
+                            </options>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
 
-    Способ 1 (через shade plugin):
-    mvn clean package -DskipTests=true
-    Результат: target/cgvsu-1.0-SNAPSHOT-executable.jar
-
-    Способ 2 (через assembly plugin):
-    mvn clean compile assembly:single -DskipTests=true
-    Результат: target/Simple3DViewer.jar
-
-    Запуск:
-    java -jar target/Simple3DViewer.jar
-
-    Примечание: Для JavaFX приложений может потребоваться
-    добавить модули при запуске:
-    java --module-path /path/to/javafx-sdk/lib \
-         --add-modules javafx.controls,javafx.fxml \
-         -jar target/Simple3DViewer.jar
-    =====================================================
-    -->
+        <!-- Профиль для hardware acceleration (если работает) -->
+        <profile>
+            <id>hw-accel</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.openjfx</groupId>
+                        <artifactId>javafx-maven-plugin</artifactId>
+                        <version>0.0.8</version>
+                        <configuration>
+                            <mainClass>com.cgvsu/com.cgvsu.Main</mainClass>
+                            <options>
+                                <option>-Dprism.order=es2,sw</option>
+                                <option>-Dprism.forceGPU=true</option>
+                            </options>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
