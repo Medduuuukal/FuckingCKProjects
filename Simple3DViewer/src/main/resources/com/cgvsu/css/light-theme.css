@@ -1,0 +1,302 @@
+/*
+ * Светлая тема для Simple3DViewer
+ * Light Theme CSS for JavaFX Application
+ */
+
+/* Основной фон приложения */
+.root {
+    -fx-base: #f5f5f5;
+    -fx-background: #ffffff;
+    -fx-control-inner-background: #ffffff;
+    -fx-accent: #2196f3;
+    -fx-focus-color: #2196f3;
+    -fx-faint-focus-color: #2196f322;
+    -fx-text-base-color: #333333;
+    -fx-text-fill: #333333;
+}
+
+/* AnchorPane и основные панели */
+.anchor-pane, .pane, .border-pane, .split-pane, .vbox, .hbox {
+    -fx-background-color: #ffffff;
+}
+
+/* Меню */
+.menu-bar {
+    -fx-background-color: #f8f8f8;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 0 1 0;
+}
+
+.menu-bar .menu {
+    -fx-background-color: transparent;
+}
+
+.menu-bar .menu .label {
+    -fx-text-fill: #333333;
+}
+
+.menu-bar .menu:hover,
+.menu-bar .menu:showing {
+    -fx-background-color: #e8e8e8;
+}
+
+.context-menu {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d0d0d0;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 2);
+}
+
+.menu-item {
+    -fx-background-color: transparent;
+}
+
+.menu-item .label {
+    -fx-text-fill: #333333;
+}
+
+.menu-item:hover,
+.menu-item:focused {
+    -fx-background-color: #e8f4fc;
+}
+
+/* Кнопки */
+.button {
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #333333;
+    -fx-border-color: #c0c0c0;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 6 12 6 12;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #e0e0e0;
+    -fx-border-color: #b0b0b0;
+}
+
+.button:pressed {
+    -fx-background-color: #d0d0d0;
+}
+
+.button:focused {
+    -fx-border-color: #2196f3;
+}
+
+/* Кнопка по умолчанию (акцентная) */
+.button.default {
+    -fx-background-color: #2196f3;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #1976d2;
+}
+
+.button.default:hover {
+    -fx-background-color: #42a5f5;
+}
+
+/* Опасная кнопка (удаление) */
+.button.danger {
+    -fx-background-color: #f44336;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #d32f2f;
+}
+
+.button.danger:hover {
+    -fx-background-color: #ef5350;
+}
+
+/* ListView */
+.list-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d0d0d0;
+}
+
+.list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #333333;
+    -fx-padding: 8 12 8 12;
+}
+
+.list-cell:filled:hover {
+    -fx-background-color: #f5f5f5;
+}
+
+.list-cell:filled:selected {
+    -fx-background-color: #2196f3;
+    -fx-text-fill: #ffffff;
+}
+
+.list-cell:filled:selected:hover {
+    -fx-background-color: #42a5f5;
+}
+
+/* Активный элемент в списке моделей */
+.list-cell.active-model {
+    -fx-font-weight: bold;
+    -fx-border-color: #2196f3;
+    -fx-border-width: 0 0 0 3;
+}
+
+/* ScrollPane и ScrollBar */
+.scroll-pane {
+    -fx-background-color: #ffffff;
+}
+
+.scroll-bar {
+    -fx-background-color: #f0f0f0;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #c0c0c0;
+    -fx-background-radius: 4;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #a0a0a0;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+}
+
+/* TextField и TextArea */
+.text-field, .text-area {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #333333;
+    -fx-border-color: #c0c0c0;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-prompt-text-fill: #999999;
+}
+
+.text-field:focused, .text-area:focused {
+    -fx-border-color: #2196f3;
+}
+
+/* Label */
+.label {
+    -fx-text-fill: #333333;
+}
+
+.label.title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.label.subtitle {
+    -fx-font-size: 12px;
+    -fx-text-fill: #666666;
+}
+
+/* CheckBox */
+.check-box {
+    -fx-text-fill: #333333;
+}
+
+.check-box .box {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #c0c0c0;
+    -fx-border-radius: 3;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #2196f3;
+    -fx-border-color: #2196f3;
+}
+
+.check-box .mark {
+    -fx-background-color: #ffffff;
+}
+
+/* ComboBox */
+.combo-box {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #c0c0c0;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: #333333;
+}
+
+/* TitledPane */
+.titled-pane {
+    -fx-text-fill: #333333;
+}
+
+.titled-pane > .title {
+    -fx-background-color: #f8f8f8;
+    -fx-border-color: #e0e0e0;
+}
+
+.titled-pane > .content {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #e0e0e0;
+}
+
+/* Alert/Dialog стили */
+.dialog-pane {
+    -fx-background-color: #ffffff;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: #f8f8f8;
+}
+
+.dialog-pane .content {
+    -fx-text-fill: #333333;
+}
+
+/* Панель инструментов */
+.tool-bar {
+    -fx-background-color: #f8f8f8;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 4;
+}
+
+/* Разделитель */
+.separator {
+    -fx-background-color: #e0e0e0;
+}
+
+/* Canvas контейнер */
+.canvas-container {
+    -fx-background-color: #f0f0f0;
+    -fx-border-color: #d0d0d0;
+    -fx-border-width: 1;
+}
+
+/* Боковая панель */
+.side-panel {
+    -fx-background-color: #fafafa;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 1 0 0;
+    -fx-padding: 10;
+}
+
+/* Статус бар */
+.status-bar {
+    -fx-background-color: #f8f8f8;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 4 8 4 8;
+}
+
+.status-bar .label {
+    -fx-text-fill: #666666;
+    -fx-font-size: 11px;
+}
+
+/* Tooltip */
+.tooltip {
+    -fx-background-color: #424242;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #333333;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 4 8 4 8;
+}

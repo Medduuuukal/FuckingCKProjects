@@ -1,0 +1,197 @@
+# =====================================================
+# Simple3DViewer - .gitignore
+# =====================================================
+
+# =====================================================
+# Build output
+# =====================================================
+target/
+build/
+out/
+bin/
+dist/
+
+# =====================================================
+# Maven
+# =====================================================
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# =====================================================
+# Gradle (если будет использоваться)
+# =====================================================
+.gradle/
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
+
+# =====================================================
+# IntelliJ IDEA
+# =====================================================
+.idea/
+*.iml
+*.ipr
+*.iws
+.idea_modules/
+atlassian-ide-plugin.xml
+cmake-build-*/
+
+# IntelliJ IDEA - пользовательские настройки
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+.idea/**/contentModel.xml
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
+
+# =====================================================
+# Eclipse
+# =====================================================
+.metadata/
+.settings/
+.classpath
+.project
+.factorypath
+*.launch
+.loadpath
+.recommenders
+
+# =====================================================
+# NetBeans
+# =====================================================
+/nbproject/private/
+/nbbuild/
+/nbdist/
+/.nb-gradle/
+
+# =====================================================
+# VS Code
+# =====================================================
+.vscode/
+*.code-workspace
+.history/
+
+# =====================================================
+# Java
+# =====================================================
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+replay_pid*
+
+# =====================================================
+# JavaFX
+# =====================================================
+*.fxbuild
+
+# =====================================================
+# Logs
+# =====================================================
+*.log
+logs/
+log/
+
+# =====================================================
+# OS-specific files
+# =====================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# =====================================================
+# Temporary files
+# =====================================================
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*.backup
+*.orig
+
+# =====================================================
+# Test output
+# =====================================================
+test-output/
+surefire-reports/
+failsafe-reports/
+
+# =====================================================
+# Coverage reports
+# =====================================================
+coverage/
+*.exec
+jacoco.exec
+cobertura.ser
+
+# =====================================================
+# Package files
+# =====================================================
+*.7z
+*.dmg
+*.gz
+*.iso
+*.rar
+*.tar
+*.zip
+
+# =====================================================
+# Model files (большие тестовые файлы)
+# =====================================================
+# Раскомментируйте, если не хотите хранить OBJ файлы в репозитории
+# *.obj
+# models/
+
+# =====================================================
+# Secrets and credentials
+# =====================================================
+*.env
+.env.local
+.env.*.local
+secrets.properties
+credentials.properties
+
+# =====================================================
+# Local configuration
+# =====================================================
+local.properties
+config.local.properties
+application-local.properties

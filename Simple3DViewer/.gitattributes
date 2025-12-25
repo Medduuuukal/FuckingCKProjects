@@ -1,0 +1,177 @@
+# =====================================================
+# Simple3DViewer - .gitattributes
+# https://git-scm.com/docs/gitattributes
+# =====================================================
+
+# =====================================================
+# Автоматическое определение текстовых файлов
+# =====================================================
+* text=auto
+
+# =====================================================
+# Исходный код - всегда LF
+# =====================================================
+*.java          text eol=lf diff=java
+*.kt            text eol=lf diff=kotlin
+*.groovy        text eol=lf diff=java
+*.scala         text eol=lf diff=java
+
+# =====================================================
+# Конфигурационные файлы
+# =====================================================
+*.xml           text eol=lf
+*.fxml          text eol=lf
+*.properties    text eol=lf
+*.yml           text eol=lf
+*.yaml          text eol=lf
+*.json          text eol=lf
+*.toml          text eol=lf
+*.ini           text eol=lf
+*.cfg           text eol=lf
+*.conf          text eol=lf
+
+# =====================================================
+# Сборка и зависимости
+# =====================================================
+pom.xml         text eol=lf
+build.gradle    text eol=lf
+settings.gradle text eol=lf
+gradlew         text eol=lf
+*.gradle        text eol=lf
+
+# =====================================================
+# Веб и стили
+# =====================================================
+*.css           text eol=lf diff=css
+*.scss          text eol=lf diff=css
+*.sass          text eol=lf diff=css
+*.less          text eol=lf diff=css
+*.html          text eol=lf diff=html
+*.htm           text eol=lf diff=html
+*.js            text eol=lf
+*.ts            text eol=lf
+
+# =====================================================
+# Документация
+# =====================================================
+*.md            text eol=lf diff=markdown
+*.txt           text eol=lf
+*.rst           text eol=lf
+LICENSE         text eol=lf
+CHANGELOG       text eol=lf
+README          text eol=lf
+AUTHORS         text eol=lf
+CONTRIBUTING    text eol=lf
+
+# =====================================================
+# Shell скрипты
+# =====================================================
+*.sh            text eol=lf
+*.bash          text eol=lf
+*.zsh           text eol=lf
+*.fish          text eol=lf
+
+# =====================================================
+# Windows скрипты - CRLF
+# =====================================================
+*.bat           text eol=crlf
+*.cmd           text eol=crlf
+*.ps1           text eol=crlf
+
+# =====================================================
+# Docker
+# =====================================================
+Dockerfile      text eol=lf
+*.dockerfile    text eol=lf
+docker-compose* text eol=lf
+.dockerignore   text eol=lf
+
+# =====================================================
+# Git файлы
+# =====================================================
+.gitignore      text eol=lf
+.gitattributes  text eol=lf
+.gitmodules     text eol=lf
+
+# =====================================================
+# Бинарные файлы - не трогать
+# =====================================================
+*.jar           binary
+*.war           binary
+*.ear           binary
+*.class         binary
+
+# Изображения
+*.png           binary
+*.jpg           binary
+*.jpeg          binary
+*.gif           binary
+*.ico           binary
+*.bmp           binary
+*.tiff          binary
+*.webp          binary
+*.svg           text eol=lf
+
+# Шрифты
+*.ttf           binary
+*.otf           binary
+*.woff          binary
+*.woff2         binary
+*.eot           binary
+
+# Архивы
+*.zip           binary
+*.tar           binary
+*.gz            binary
+*.7z            binary
+*.rar           binary
+
+# Документы
+*.pdf           binary
+*.doc           binary
+*.docx          binary
+*.xls           binary
+*.xlsx          binary
+*.ppt           binary
+*.pptx          binary
+
+# =====================================================
+# 3D модели - бинарные
+# =====================================================
+*.obj           text eol=lf
+*.mtl           text eol=lf
+*.stl           binary
+*.fbx           binary
+*.blend         binary
+*.3ds           binary
+*.dae           text eol=lf
+*.gltf          text eol=lf
+*.glb           binary
+
+# =====================================================
+# Медиа файлы
+# =====================================================
+*.mp3           binary
+*.mp4           binary
+*.wav           binary
+*.avi           binary
+*.mov           binary
+*.ogg           binary
+*.webm          binary
+
+# =====================================================
+# Сертификаты и ключи
+# =====================================================
+*.pem           text eol=lf
+*.crt           text eol=lf
+*.key           text eol=lf
+
+# =====================================================
+# Языковые статистики GitHub
+# =====================================================
+# Исключаем автогенерируемые файлы из статистики
+*.min.js        linguist-vendored
+*.min.css       linguist-vendored
+
+# Помечаем документацию
+docs/*          linguist-documentation
